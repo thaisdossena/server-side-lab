@@ -111,40 +111,4 @@ RN24: o unico método público da classe negociação deve ser possuir seguinte 
 
 RN25: de acordo com as regras descritas ao longo do enunciado, o método `negociar` deve retornar _true_ quando foi possível realizar a transferência e _false_ quando não.
 
-# Exemplos de Testes
 
-``` Java   
-@Test
-public void deveSerPossivelNegociarUmGoleiroComUmClubeQueTemSaldoEmCaixa() {
-
-    Negociacao negociacao = new Negociacao();
-    Clube clube = new Clube("Grêmio", 10, BigDecimal.valueOf(100000000));
-    Goleiro goleiro = new Goleiro("Marcelo Grohe", 33, null, 8, new Indiferente(), BigDecimal.valueOf(800500), 12);
-
-    boolean foiPossivelNegociar = negociacao.negociar(clube, goleiro);
-
-    Assert.assertTrue(foiPossivelNegociar);
-}
-
-@Test
-public void naoDeveSerPossivelNegociarUmAtacanteComUmClubeQueTemReputacaoHistoricaMenorQueASua() {
-
-    Negociacao negociacao = new Negociacao();
-    Clube clube = new Clube("Internacional", 3, BigDecimal.valueOf(100000000));
-    Atacante atacante = new Atacante("Cristiano Ronaldo", 35, null, 10, new Conservador(), BigDecimal.valueOf(800500), 20);
-
-    boolean foiPossivelNegociar = negociacao.negociar(clube, atacante);
-
-    Assert.assertFalse(foiPossivelNegociar);
-}
-```
-
-## Testes Obrigatórios
-
-* Devem existir **obrigatóriamente** na solução entregue testes unitários com os seguintes nomes:
-
-    - deveSerPossivelNegociarUmGoleiroComUmClubeQueTemSaldoEmCaixa
-    - naoDeveSerPossivelNegociarUmAtacanteComUmClubeQueTemReputacaoHistoricaMenorQueASua
-    - naoDeveSerPossivelNegociarPorFaltaDeCaixaDisponivel
-    - deveCalcularCorretamenteOPrecoDoMeioCampoComMenosDeTrintaAnos
-    - deveCalcularCorretamenteOPrecoDoMeioCampoComMaisDeTrintaAnos
